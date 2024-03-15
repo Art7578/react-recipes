@@ -22,6 +22,11 @@ export const Header = () => {
                 <Link className={css.logo} to="/">
                     <span>DAILY RECIPE</span>
                 </Link>
+
+                <Link to="/favorites">
+                    <span>Favorites</span>
+                </Link>
+
                 <div className={css.buttons}>
                     {isAuth ? (
                         <>

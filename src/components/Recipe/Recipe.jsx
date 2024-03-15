@@ -1,10 +1,11 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import css from './Recipe.module.css';
 import { UserInfo } from '../UserInfo/UserInfo';
 import { fetchRemoveRecipe } from '../../redux/slices/recipe';
+import { addToFavorites, removeFromFavorites } from '../../redux/slices/favorites';
 
 export const Recipe = ({
   id,
@@ -19,6 +20,10 @@ export const Recipe = ({
   isEditable,
 }) => {
   const dispatch = useDispatch();
+  const isAuth = useSelector(state => state.auth.data !== null);
+  const favorites = useSelector(state => state.favorites.favorites);
+  const userId = useSelector(state => state.auth.data?._id); 
+  const isFavorite = favorites.some(recipe => recipe._id === id);
 
   if (isLoading) {
     return <div>Loading</div>;
@@ -27,6 +32,18 @@ export const Recipe = ({
   const onClickRemove = () => {
     if (window.confirm('Are you sure you want to delete recipe?')) {
       dispatch(fetchRemoveRecipe(id));
+    }
+  };
+
+  const toggleFavorite = () => {
+    if (isFavorite) {
+      dispatch(removeFromFavorites({ id }));
+      const updatedFavorites = favorites.filter(recipe => recipe._id !== id);
+      localStorage.setItem(`favorites_${userId}`, JSON.stringify(updatedFavorites)); 
+    } else {
+      dispatch(addToFavorites({ recipe: { _id: id, title, description, imageUrl } }));
+      const updatedFavorites = [...favorites, { _id: id, title, description, imageUrl }];
+      localStorage.setItem(`favorites_${userId}`, JSON.stringify(updatedFavorites)); 
     }
   };
 
@@ -60,6 +77,11 @@ export const Recipe = ({
           {children && <div className={css.content}>{children}</div>}
           <span className={css.postDetails}>{description}</span>
         </div>
+        {isAuth && (
+          <button onClick={toggleFavorite}>
+            {isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+          </button>
+        )}
       </div>
     </div>
   );
