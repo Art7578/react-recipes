@@ -6,6 +6,7 @@ import { Registration } from "./pages/Registration/Registration";
 import { Header } from "./components/Header/Header";
 import { Favorites } from "./pages/Favorites/Favorites";
 import { FullRecipe } from "./pages/FullRecipe/FullRecipe";
+import { AddRecipe } from "./pages/AddRecipe/AddRecipe";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path="/register" element={<Registration />}/>
         <Route path="/favorites" element={<Favorites />}/>
         <Route path="/recipes/:id" element={<FullRecipe />}/>
+        <Route path="/recipes/:id/edit" element={<AddRecipe />}/>
+        <Route path="/add-recipe" element={<AddRecipe />}/>
       </Routes>
     </div>
   );

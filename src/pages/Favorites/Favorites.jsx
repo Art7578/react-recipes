@@ -40,7 +40,6 @@ export const Favorites = () => {
               imageUrl={recipe.imageUrl}
               user={recipe.user}
               createdAt={recipe.createdAt}
-              isEditable={false}
               isLoading={false}
             />
           ))}

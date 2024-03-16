@@ -30,6 +30,9 @@ export const Header = () => {
                 <div className={css.buttons}>
                     {isAuth ? (
                         <>
+                            <Link to="/add-recipe">
+                                <button className={css.button_add}>Write the recipe</button>
+                            </Link>
                             <button onClick={onClickLogOut} className={css.button_error} >
                                 Log Out
                             </button>
