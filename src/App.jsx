@@ -5,6 +5,7 @@ import { Login } from "./pages/LogIn/LogIn";
 import { Registration } from "./pages/Registration/Registration";
 import { Header } from "./components/Header/Header";
 import { Favorites } from "./pages/Favorites/Favorites";
+import { FullRecipe } from "./pages/FullRecipe/FullRecipe";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Registration />}/>
         <Route path="/favorites" element={<Favorites />}/>
+        <Route path="/recipes/:id" element={<FullRecipe />}/>
       </Routes>
     </div>
   );

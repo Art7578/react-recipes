@@ -72,7 +72,7 @@ export const Recipe = ({
         <UserInfo {...user} additionalText={createdAt} />
         <div className={css.indention}>
           <h2 className={`${css.title} ${isFullRecipe ? '' : css.ellipsis}`} style={{ width: isFullRecipe ? 'auto' : '450px' }}>
-            {isFullRecipe ? title : <Link to={`/posts/${id}`}>{title}</Link>}
+            {isFullRecipe ? title : <Link to={`/recipes/${id}`}>{title}</Link>}
           </h2>
           {children && <div className={css.content}>{children}</div>}
           <span className={css.postDetails}>{description}</span>
