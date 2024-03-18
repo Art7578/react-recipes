@@ -1,0 +1,120 @@
+.container {
+  max-width: 1200px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe_inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title_input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.description_input,
+.ingredients_input,
+.time_input,
+.servings_input,
+.difficulty_input,
+.nutritional_info_input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.editor {
+  margin-top: 20px;
+}
+
+.buttons {
+    margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  align-items: center;
+}
+
+.submit_button,
+.cancel_button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit_button {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.cancel_button {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.submit_button:hover,
+.cancel_button:hover {
+  opacity: 0.8;
+}
+
+.preview_button {
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.preview_button:hover {
+    background-color: #0e39f7;
+}
+
+.imageContainer {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.delete_button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.delete_button:hover {
+    background-color: #f81404;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}

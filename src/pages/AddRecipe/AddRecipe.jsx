@@ -136,66 +136,68 @@ export const AddRecipe = () => {
       )}
       <br />
       <br />
-      <input
-        className={css.title_input}
-        type="text"
-        placeholder="Recipe title..."
-        value={title}
-        onChange={e => setTitle(e.target.value)}
-      />
-      <textarea
-        className={css.description_input}
-        placeholder="Recipe description..."
-        value={description}
-        onChange={e => setDescription(e.target.value)}
-      />
-      <textarea
-        className={css.ingredients_input}
-        placeholder="Ingredients (one per line)..."
-        value={ingredients}
-        onChange={e => setIngredients(e.target.value)}
-      />
-      <input
-        className={css.time_input}
-        type="text"
-        placeholder="Prep time..."
-        value={prepTime}
-        onChange={e => setPrepTime(e.target.value)}
-      />
-      <input
-        className={css.time_input}
-        type="text"
-        placeholder="Cook time..."
-        value={cookTime}
-        onChange={e => setCookTime(e.target.value)}
-      />
-      <input
-        className={css.time_input}
-        type="text"
-        placeholder="Total time..."
-        value={totalTime}
-        onChange={e => setTotalTime(e.target.value)}
-      />
-      <input
-        className={css.servings_input}
-        type="text"
-        placeholder="Servings..."
-        value={servings}
-        onChange={e => setServings(e.target.value)}
-      />
-      <input
-        className={css.difficulty_input}
-        type="text"
-        placeholder="Difficulty..."
-        value={difficulty}
-        onChange={e => setDifficulty(e.target.value)}
-      />
-      <textarea
-        className={css.nutritional_info_input}
-        placeholder="Nutritional info (one per line)..."
-        value={nutritionalInfo}
-        onChange={e => setNutritionalInfo(e.target.value)}
-      />
+      <div className={css.recipe_inputs}>
+        <input
+          className={css.title_input}
+          type="text"
+          placeholder="Recipe title..."
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+        />
+        <textarea
+          className={css.description_input}
+          placeholder="Recipe description..."
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+        />
+        <textarea
+          className={css.ingredients_input}
+          placeholder="Ingredients (one per line)..."
+          value={ingredients}
+          onChange={e => setIngredients(e.target.value)}
+        />
+        <input
+          className={css.time_input}
+          type="text"
+          placeholder="Prep time..."
+          value={prepTime}
+          onChange={e => setPrepTime(e.target.value)}
+        />
+        <input
+          className={css.time_input}
+          type="text"
+          placeholder="Cook time..."
+          value={cookTime}
+          onChange={e => setCookTime(e.target.value)}
+        />
+        <input
+          className={css.time_input}
+          type="text"
+          placeholder="Total time..."
+          value={totalTime}
+          onChange={e => setTotalTime(e.target.value)}
+        />
+        <input
+          className={css.servings_input}
+          type="text"
+          placeholder="Servings..."
+          value={servings}
+          onChange={e => setServings(e.target.value)}
+        />
+        <input
+          className={css.difficulty_input}
+          type="text"
+          placeholder="Difficulty..."
+          value={difficulty}
+          onChange={e => setDifficulty(e.target.value)}
+        />
+        <textarea
+          className={css.nutritional_info_input}
+          placeholder="Nutritional info (one per line)..."
+          value={nutritionalInfo}
+          onChange={e => setNutritionalInfo(e.target.value)}
+        />
+      </div>
       <SimpleMDE className={css.editor} value={instructions} onChange={onChange} options={options} />
       <div className={css.buttons}>
         <button className={css.submit_button} onClick={onSubmit}>
