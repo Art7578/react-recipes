@@ -78,9 +78,9 @@ export const Recipe = ({
           <span className={css.postDetails}>{description}</span>
         </div>
         {isAuth && (
-          <button className={css.favoriteButton} onClick={toggleFavorite}>
-            {isFavorite ? 'Remove from favorites' : 'Add to favorites'}
-          </button>
+          <button className={`${css.favoriteButton} ${isFavorite ? css.favoriteButtonRemove : css.favoriteButtonAdd}`} onClick={toggleFavorite}>
+          {isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+        </button>
         )}
       </div>
     </div>
