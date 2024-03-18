@@ -1,0 +1,116 @@
+.root {
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.root:hover {
+    border: 1px solid #f58505;
+    box-shadow: 0 0 0 1px #d1a105;
+}
+
+.root:hover .editButtons {
+    opacity: 1;
+    right: 30px;
+    top: 30px;
+}
+
+.rootFull {
+    padding: 40px;
+}
+
+.editButtons {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 0.15s ease-in-out;
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.primaryButton {
+    background-color: #4caf50;
+    color: white;
+    margin-right: 10px;
+}
+
+.secondaryButton {
+    background-color: #f44336;
+    color: white;
+}
+
+.image {
+    width: 400px;
+    height: 300px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+    outline: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.title a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s;
+}
+
+.title a:hover {
+    color: #f54905;
+}
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wrapper {
+    margin-top: 15px;
+}
+
+.postDetails {
+    color: #777;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.content {
+    margin-top: 10px;
+}
+
+.postDetails {
+    font-size: 14px;
+}
+
+.favoriteButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.favoriteButton:hover {
+  background-color: #0b7dda;
+}
