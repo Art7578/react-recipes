@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { logout, selectIsAuth } from "../../redux/slices/auth";
 
 import css from './Header.module.css';
@@ -8,6 +8,11 @@ import css from './Header.module.css';
 export const Header = () => {
     const dispatch = useDispatch();
     const isAuth = useSelector(selectIsAuth);
+    const location = useLocation();
+
+    const isActiveRoute = (route) => {
+        return location.pathname === route;
+      };
 
     const onClickLogOut = () => {
         if (window.confirm('Are you sure you want to log?')) {
@@ -23,7 +28,7 @@ export const Header = () => {
                     <span>DAILY RECIPE</span>
                 </Link>
 
-                <Link to="/favorites">
+                <Link className={css.fav} to="/favorites">
                     <span>Favorites</span>
                 </Link>
 
@@ -40,10 +45,10 @@ export const Header = () => {
                     ) : (
                         <>
                             <Link to="/login">
-                                <button>Log In</button>
+                                <button className={isActiveRoute('/login') ? `${css.button_contained} ${css.active}` : css.button_contained}>Log In</button>
                             </Link>
                             <Link to="/register">
-                                <button>Register</button>
+                                <button className={isActiveRoute('/register') ? `${css.button_contained} ${css.active}` : css.button_contained}>Register</button>
                             </Link>
                         </>
                     )}
