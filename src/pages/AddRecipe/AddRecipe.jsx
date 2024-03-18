@@ -48,19 +48,21 @@ export const AddRecipe = () => {
     setInstructions(value);
   }, []);
 
+  const ingredientsArray = ingredients.split(',').map(ingredient => ingredient.trim());
+  const nutritionaInfoArray = nutritionalInfo.split(',').map(info => info.trim());
   const onSubmit = async () => {
     try {
       const recipeData = {
         title,
         description,
-        ingredients: ingredients.split('\n'),
+        ingredients: ingredientsArray,
         instructions,
         prep_time: prepTime,
         cook_time: cookTime,
         total_time: totalTime,
         servings: parseInt(servings),
         difficulty,
-        nutritional_info: nutritionalInfo.split('\n'),
+        nutritional_info: nutritionaInfoArray,
         imageUrl,
       };
 
