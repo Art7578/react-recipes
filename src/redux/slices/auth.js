@@ -12,7 +12,7 @@ export const fetchRegister = createAsyncThunk('auth/fetchRegister', async (param
 });
 
 const initialState = {
-    data: null,
+    data: JSON.parse(localStorage.getItem('userData')) || null, // Проверяем наличие данных в локальном хранилище
     status: 'loading',
 };
 
@@ -22,6 +22,7 @@ const authSlice = createSlice({
     reducers: {
         logout: (state) => {
             state.data = null;
+            localStorage.removeItem('userData'); // Удаляем данные из локального хранилища при выходе
         }
     },
     extraReducers: (builder) => {
@@ -33,6 +34,7 @@ const authSlice = createSlice({
         .addCase(fetchAuth.fulfilled, (state, action) => {
             state.status = 'loaded';
             state.data = action.payload;
+            localStorage.setItem('userData', JSON.stringify(action.payload)); // Сохраняем данные в локальное хранилище при успешной аутентификации
         })
         .addCase(fetchAuth.rejected, (state) => {
             state.status = 'error';
@@ -45,6 +47,7 @@ const authSlice = createSlice({
         .addCase(fetchRegister.fulfilled, (state, action) => {
             state.status = 'loaded';
             state.data = action.payload;
+            localStorage.setItem('userData', JSON.stringify(action.payload)); // Сохраняем данные в локальное хранилище при успешной регистрации
         })
         .addCase(fetchRegister.rejected, (state) => {
             state.status = 'error';

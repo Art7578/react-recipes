@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -23,7 +23,14 @@ export const Recipe = ({
   const isAuth = useSelector(state => state.auth.data !== null);
   const favorites = useSelector(state => state.favorites.favorites);
   const userId = useSelector(state => state.auth.data?._id); 
-  const isFavorite = favorites.some(recipe => recipe._id === id);
+  const [isFavorite, setIsFavorite] = useState(false); // Используем локальное состояние для отслеживания избранного рецепта
+
+  useEffect(() => {
+    const savedFavorites = JSON.parse(localStorage.getItem(`favorites_${userId}`)); 
+    if (savedFavorites) {
+      setIsFavorite(savedFavorites.some(recipe => recipe._id === id)); // Устанавливаем isFavorite в true, если рецепт находится в сохраненных избранных
+    }
+  }, [userId, id]);
 
   if (isLoading) {
     return <div>Loading</div>;
@@ -38,10 +45,12 @@ export const Recipe = ({
   const toggleFavorite = () => {
     if (isFavorite) {
       dispatch(removeFromFavorites({ id }));
+      setIsFavorite(false); // Обновляем локальное состояние и удаляем рецепт из избранных
       const updatedFavorites = favorites.filter(recipe => recipe._id !== id);
       localStorage.setItem(`favorites_${userId}`, JSON.stringify(updatedFavorites)); 
     } else {
       dispatch(addToFavorites({ recipe: { _id: id, title, description, imageUrl } }));
+      setIsFavorite(true); // Обновляем локальное состояние и добавляем рецепт в избранные
       const updatedFavorites = [...favorites, { _id: id, title, description, imageUrl }];
       localStorage.setItem(`favorites_${userId}`, JSON.stringify(updatedFavorites)); 
     }

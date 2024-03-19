@@ -22,6 +22,19 @@ export const Favorites = () => {
     }
   }, [dispatch, userId]);
 
+  // Обновление состояния Redux при авторизации
+  useEffect(() => {
+    if (isAuth) {
+      const savedFavorites = JSON.parse(localStorage.getItem(`favorites_${userId}`)); 
+      if (savedFavorites) {
+        dispatch(clearFavorites()); 
+        savedFavorites.forEach(recipe => {
+          dispatch(addToFavorites({ recipe }));
+        });
+      }
+    }
+  }, [dispatch, isAuth, userId]);
+
   return (
     <div className={css.favorites}>
       <h1 className={css.favorites_title}>Favorites</h1>
