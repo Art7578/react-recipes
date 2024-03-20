@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/react-recipes/static/css/main.b76526be.css",
-    "main.js": "/react-recipes/static/js/main.a3aa9305.js",
+    "main.css": "/react-recipes/static/css/main.ea337218.css",
+    "main.js": "/react-recipes/static/js/main.dd75b64c.js",
+    "static/media/abstract-white-background-with-elements-of-useful-food-vector.jpg": "/react-recipes/static/media/abstract-white-background-with-elements-of-useful-food-vector.dd32606d599dcb393b55.jpg",
     "static/media/marked.cjs": "/react-recipes/static/media/marked.9d11e79e65a241a47955.cjs",
     "index.html": "/react-recipes/index.html",
-    "main.b76526be.css.map": "/react-recipes/static/css/main.b76526be.css.map",
-    "main.a3aa9305.js.map": "/react-recipes/static/js/main.a3aa9305.js.map"
+    "main.ea337218.css.map": "/react-recipes/static/css/main.ea337218.css.map",
+    "main.dd75b64c.js.map": "/react-recipes/static/js/main.dd75b64c.js.map"
   },
   "entrypoints": [
-    "static/css/main.b76526be.css",
-    "static/js/main.a3aa9305.js"
+    "static/css/main.ea337218.css",
+    "static/js/main.dd75b64c.js"
   ]
 }
