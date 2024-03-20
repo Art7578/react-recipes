@@ -39,10 +39,14 @@ export const Favorites = () => {
     <div className={css.favorites}>
       <h1 className={css.favorites_title}>Favorites</h1>
       {!isAuth && (
-        <p className={css.page_link}>Please <Link className={css.link} to="/login">log in</Link> to view and add favorite recipes.</p>
+        <div className={css.message}>
+          <p className={css.page_link}>Please <Link className={css.link} to="/login">log in</Link> to view and add favorite recipes.</p>
+        </div>
       )}
       {isAuth && favorites.length === 0 ? (
-        <p className={css.page_link}>No favorite recipes yet. <Link className={css.link} to="/">Browse recipes</Link></p>
+        <div className={css.message}>
+          <p className={css.page_link}>No favorite recipes yet. <Link className={css.link} to="/">Browse recipes</Link></p>
+        </div>
       ) : (
         <div className={css.favorites_list}>
           {favorites.map(recipe => (
